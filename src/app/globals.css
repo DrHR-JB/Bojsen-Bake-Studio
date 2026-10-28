@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-instrument), system-ui, sans-serif;
+}
+
+@theme {
+  --color-flour: #fcf8f1;
+  --color-cream: #f5ecdc;
+  --color-wheat: #e8cf9f;
+  --color-wheat-dark: #c99b52;
+  --color-crust: #9b5527;
+  --color-crust-dark: #6c3817;
+  --color-oven: #2f2219;
+  --color-rye: #67503d;
+  --color-sage: #6f7f5c;
+  --color-sage-light: #e3e8d6;
+  --color-ember: #c4432a;
+
+  --animate-alarm: alarm-pulse 1s ease-in-out infinite;
+  --animate-rise: rise-in 0.35s ease-out both;
+
+  @keyframes alarm-pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgb(196 67 42 / 0.55);
+    }
+    50% {
+      box-shadow: 0 0 0 18px rgb(196 67 42 / 0);
+    }
+  }
+
+  @keyframes rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-cream);
+  /* Et let drys "mel" over baggrunden. */
+  background-image:
+    radial-gradient(rgb(255 255 255 / 0.55) 1px, transparent 1.5px),
+    radial-gradient(rgb(155 85 39 / 0.05) 1px, transparent 1.5px);
+  background-size:
+    22px 22px,
+    37px 37px;
+  background-position:
+    0 0,
+    11px 17px;
+  color: var(--color-oven);
+  font-family: var(--font-instrument), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--color-wheat);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
