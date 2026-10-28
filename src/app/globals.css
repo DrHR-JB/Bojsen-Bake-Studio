@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme inline {
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-instrument), system-ui, sans-serif;
+}
+
 @theme {
   --color-flour: #fcf8f1;
   --color-cream: #f5ecdc;
@@ -12,9 +17,6 @@
   --color-sage: #6f7f5c;
   --color-sage-light: #e3e8d6;
   --color-ember: #c4432a;
-
-  --font-display: var(--font-fraunces), Georgia, serif;
-  --font-sans: var(--font-instrument), system-ui, sans-serif;
 
   --animate-alarm: alarm-pulse 1s ease-in-out infinite;
   --animate-rise: rise-in 0.35s ease-out both;
@@ -58,7 +60,7 @@ body {
     0 0,
     11px 17px;
   color: var(--color-oven);
-  font-family: var(--font-sans);
+  font-family: var(--font-instrument), system-ui, sans-serif;
 }
 
 ::selection {

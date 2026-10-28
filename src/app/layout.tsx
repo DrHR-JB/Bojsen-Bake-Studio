@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Instrument_Sans } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
+import { AlarmOverlay } from "@/components/timers/AlarmOverlay";
+import { NotificationPrompt } from "@/components/timers/NotificationPrompt";
+import { TimerDock } from "@/components/timers/TimerDock";
+import { TimerProvider } from "@/components/timers/TimerProvider";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -28,10 +32,15 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="da">
-      <body className={`${fraunces.variable} ${instrument.variable} min-h-dvh antialiased`}>
-        <SiteHeader />
-        <main className="mx-auto w-full max-w-6xl px-4 pb-40 sm:px-6">{children}</main>
+    <html lang="da" className={`${fraunces.variable} ${instrument.variable}`}>
+      <body className="min-h-dvh antialiased">
+        <TimerProvider>
+          <SiteHeader />
+          <main className="mx-auto w-full max-w-6xl px-4 pb-40 sm:px-6">{children}</main>
+          <TimerDock />
+          <NotificationPrompt />
+          <AlarmOverlay />
+        </TimerProvider>
       </body>
     </html>
   );

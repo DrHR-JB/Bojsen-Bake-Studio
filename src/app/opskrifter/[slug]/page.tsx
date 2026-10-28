@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { RecipeIllustration } from "@/components/Illustrations";
 import { DifficultyDots } from "@/components/RecipeMeta";
+import { StepTimerButton } from "@/components/timers/StepTimerButton";
 import { formatGrams, formatMinutes, formatPercent, formatRange } from "@/lib/format";
 import {
   bakersPercentage,
@@ -160,6 +161,15 @@ export default async function RecipePage({ params }: Props) {
                     </p>
                   )}
                   <p className="mt-2 leading-relaxed">{step.description}</p>
+                  {step.durationMinutes !== undefined && (
+                    <StepTimerButton
+                      recipeSlug={recipe.slug}
+                      recipeTitle={recipe.title}
+                      stepId={step.id}
+                      stepTitle={step.title}
+                      defaultMinutes={step.durationMinutes}
+                    />
+                  )}
                 </div>
               </li>
             ))}
